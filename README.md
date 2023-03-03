@@ -3,14 +3,16 @@
 
 ### Git Commands
 
-1. [Git Documentation](https://hit-scm.com/docs/gittutorial)
+1. [Git Documentation](https://git-scm.com/docs/gittutorial)
+
+
 
 creating conda enviornment
 
 
-------
+---
 open command from
---------
+---
 
 ---
 conda create -p <env_name>
@@ -82,3 +84,38 @@ To check remote url
 ---
 git remote -v
 ---
+
+To set up CI/CD pipeline in heroku we need 3 information
+
+1. Heroku_Email =
+2. Heroku_API_KEY =
+3. HEROKU_APP_NAME=
+ 
+
+
+ Build docker image
+ ---
+ docker build -t <image_name>:<tagname> .
+ ---
+
+> NOte: Image name for docker must be lowercase
+
+to list docker images
+---
+docker images
+---
+
+run docker image
+---
+docker run -p 5000:5000 -e PORT=5000 <image id>
+---
+To check running containers in docker
+---
+docker ps
+---
+
+To stop docker container
+---
+docker stop<container_id>
+---
+
