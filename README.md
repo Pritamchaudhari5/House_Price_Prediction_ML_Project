@@ -1,7 +1,9 @@
 # House_Price_Prediction_ML_Project
 
 
+### Git Commands
 
+1. [Git Documentation](https://hit-scm.com/docs/gittutorial)
 
 creating conda enviornment
 
@@ -49,6 +51,11 @@ pip install -r requirements.txt
  to add files to git
  ---
  git add<file_name>
+ ---
+
+ OR
+ ---
+ git add.
  ---
 
 >Note: To ignore file or folder from git we can write name of file/folder in .gitignore file

@@ -1,0 +1,45 @@
+[33mcommit e006c0cc00f682babed69f29fd0d35aa8fd30cd5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Pritam Chaudhari <pritam.chaudhari55@gmail.com>
+Date:   Fri Mar 3 10:29:15 2023 +0530
+
+    sending changes to github
+
+[1mdiff --git a/README.md b/README.md[m
+[1mindex fe41ed6..307eb9e 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -46,4 +46,32 @@[m [mpip install -r requirements.txt[m
+ ---[m
+       [m
+ [m
+[31m- [m
+\ No newline at end of file[m
+[32m+[m[32m to add files to git[m
+[32m+[m[32m ---[m
+[32m+[m[32m git add<file_name>[m
+[32m+[m[32m ---[m
+[32m+[m
+[32m+[m[32m>Note: To ignore file or folder from git we can write name of file/folder in .gitignore file[m
+[32m+[m
+[32m+[m[32mTo check git status[m
+[32m+[m[32m---[m
+[32m+[m[32mTo check all version maintained by git[m
+[32m+[m[32m---[m
+[32m+[m[32mgit log[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32mTo create version/commit all changes by git[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m[32mgit commit -m "message"[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32mTo send version/changes to github[m
+[32m+[m[32m---[m
+[32m+[m[32mgit push origin main[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32mTo check remote url[m
+[32m+[m[32m---[m
+[32m+[m[32mgit remote -v[m
+[32m+[m[32m---[m
