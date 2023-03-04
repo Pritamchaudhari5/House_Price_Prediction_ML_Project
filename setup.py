@@ -20,7 +20,7 @@ def get_requirements_list()->List[str]:
     """
     with open(REQUIREMENTS_FILE_NAME) as requirement_file:
         return requirement_file.readlines()
-
+ 
 setup(
 name=PROJECT_NAME,
 version=VERSION,
