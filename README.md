@@ -123,3 +123,5 @@ docker stop<container_id>
 python setup.py install
 ---
 pip intall -e .
+
+HEre folder means package while file means module
