@@ -125,3 +125,7 @@ python setup.py install
 pip intall -e .
 
 HEre folder means package while file means module
+
+install ipynbkernal
+---
+pip install ipykernel
