@@ -1,22 +1,16 @@
-from flask import Flask
-import sys
-from housing.logger import logging
+from housing.pipeline.pipeline import Pipeline
 from housing.exception import HousingException
+from housing.logger import logging
 
-
-app = Flask(__name__)
-
-@app.route("/",methods=['GET','POST'])
-def index():
+def main():
     try:
-        raise Exception("We are testing logging module")
+        pipeline = Pipeline()
+        pipeline.run_pipeline()
     except Exception as e:
-        housing = HousingException(e,sys)
-        logging.info(housing.error_message)
-        logging.info("We are testing logging module")
-    return "CI CD pipeline has been established"
-    
+        logging.error(f"{e}")
+        print(e)
+
 
 
 if __name__=="__main__":
-    app.run(debug=True)
+    main()

@@ -8,8 +8,6 @@
 
 
 creating conda enviornment
-
-
 ---
 open command from
 ---
