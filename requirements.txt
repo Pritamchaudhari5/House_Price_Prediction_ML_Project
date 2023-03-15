@@ -2,9 +2,6 @@ Flask
 gunicorn
 sklearn
 pandas
-evidently
-dill
 numpy
 pyYAML
-matplotlib
 -e .
