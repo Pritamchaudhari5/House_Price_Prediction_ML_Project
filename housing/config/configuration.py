@@ -77,7 +77,6 @@ class Configuration:
     def get_data_validation_config(self) ->DataValidationConfig:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
-            data_validation_artifact_dir = self.training_pipeline_config()
 
             data_validation_artifact_dir = os.path.join(
                 artifact_dir,
@@ -85,17 +84,16 @@ class Configuration:
                 self.time_stamp
             )
 
-            data_validation_config = self.config_info[DATA_INGESTION_CONFIG_KEY]
-
+            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
+ 
             ROOT_DIR
-            
 
             schema_file_path = os.path.join(ROOT_DIR,
             data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
             data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]                                                                                       
             )
 
-            report_file_path = os.path.join(data_validation_artifact_dir,
+            report_file_path = os.path.join(data_validation_artifact_dir, 
             data_validation_config[DATA_VALIDATION_REPORT_FILE_NAME_KEY]                                
             )
 
@@ -106,8 +104,8 @@ class Configuration:
             data_validation_config = DataValidationConfig(
 
                 schema_file_path=schema_file_path,
-                report_file_path= None,
-                report_page_file_path= None
+                report_file_path= report_file_path,
+                report_page_file_path= report_page_file_path,
 
             )
             return data_validation_config
@@ -147,7 +145,7 @@ class Configuration:
             )
 
             training_pipeline_config = TrainingPipelineCofig(artifact_dir=artifact_dir)
-            logging.info("Training pipeline config: {training_pipeline_config}")
+            logging.info(f"Training pipeline config: {training_pipeline_config}")
             return training_pipeline_config
 
         except Exception as e:
