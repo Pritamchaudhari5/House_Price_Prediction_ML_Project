@@ -127,3 +127,9 @@ HEre folder means package while file means module
 install ipynbkernal
 ---
 pip install ipykernel
+...
+
+
+Data Drift:
+When your dataset stats get change we call it is data drift.
+
