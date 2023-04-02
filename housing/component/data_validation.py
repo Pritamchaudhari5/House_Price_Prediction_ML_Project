@@ -1,5 +1,4 @@
 from housing.logger import logging
-from tkinter import E
 from housing.exception import HousingException
 from housing.entity.config_entity import DataValidationConfig
 from housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact

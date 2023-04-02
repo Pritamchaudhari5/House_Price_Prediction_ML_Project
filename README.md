@@ -133,3 +133,4 @@ pip install ipykernel
 Data Drift:
 When your dataset stats get change we call it is data drift.
 
+## Write a function to get training file path freom artifact dir
