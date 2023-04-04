@@ -15,6 +15,7 @@ class DataValidation:
     def __init__(self, data_validation_config:DataValidationConfig,
                  data_ingestion_artifact:DataIngestionArtifact):
         try:
+            logging.info(f"{'='*20}Data Valdaition log started.{'='*20} \n\n")
             self.data_validation_config = data_validation_config
             self.data_ingestion_artifact = data_ingestion_artifact
 
@@ -128,8 +129,13 @@ class DataValidation:
                 message="Data Validation performed successfully"
             )
             logging.info(f"Data Validation Artifact:  {data_validation_artifact}")
+            return data_validation_artifact
 
         except Exception as e:
             raise HousingException(e,sys) from e
+        
+    
+    def __del__(self):
+        logging.info(f"{'='*20}Data Validation log Completed.{'='*20} \n\n")
         
 

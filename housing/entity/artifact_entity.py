@@ -1,4 +1,6 @@
 from collections import namedtuple
+from unicodedata import name
+
 
 
 DataIngestionArtifact = namedtuple("DataIngestionArtifact",
