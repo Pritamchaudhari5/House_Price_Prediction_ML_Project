@@ -8,7 +8,9 @@ from housing.component.data_transformation import DataTransformation
 def main():
     try:
         pipeline = Pipeline()
-        pipeline.run_pipeline()
+        # pipeline.run_pipeline()
+        pipeline.start()
+        logging.info("main function execution completed.")
         # data_validation_config = Configuration().get_data_transformation_config()
         # print(data_validation_config)
         # schema_file_path=r"G:\Data Science\Projects\House_Price_Prediction_ML_Project\config\schema.yaml"
