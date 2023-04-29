@@ -1,122 +1,126 @@
-# House_Price_Prediction_ML_Project
+Application url:
+[HousingPredictor](https://housing-lower-case.herokuapp.com/)
+
+<<<<<<< HEAD
+## Start Machine Learning project.
+=======
+### housing_price_prediction_ML_project
+machine first project
+>>>>>>> af92130f65e6f841593c5afb44c2d098b77a3e22
+
+### Software and account Requirement.
+
+1. [Github Account](https://github.com)
+2. [Heroku Account](https://dashboard.heroku.com/login)
+3. [VS Code IDE](https://code.visualstudio.com/download)
+4. [GIT cli](https://git-scm.com/downloads)
+5. [GIT Documentation](https://git-scm.com/docs/gittutorial)
 
 
-### Git Commands
-
-1. [Git Documentation](https://git-scm.com/docs/gittutorial)
-
-
-
-Creating conda enviornment
----
-open command from
----
----
-conda create -p <env_name>
----
----
+Creating conda environment
+```
 conda create -p venv python==3.7 -y
----
----
-conda --version
----
----
--p create a virtual emviornment in a current project folder
----
----
+```
+```
 conda activate venv/
----
+```
+OR 
+```
+conda activate venv
+```
+
+```
+pip install -r requirements.txt
+```
+
+To Add files to git
+```
+git add .
+```
 
 OR
----
-conda activate venv
----
----
-pip install -r requirements.txt
----
+```
+git add <file_name>
+```
 
-to add files to git
----
-git add<file_name>
----
+> Note: To ignore file or folder from git we can write name of file/folder in .gitignore file
 
- OR
----
-git add.
----
-
->Note: To ignore file or folder from git we can write name of file/folder in .gitignore file
-
-To check git status
----
+To check the git status 
+```
+git status
+```
 To check all version maintained by git
----
+```
 git log
----
+```
 
 To create version/commit all changes by git
----
+```
 git commit -m "message"
----
+```
 
 To send version/changes to github
----
+```
 git push origin main
----
+```
 
-To check remote url
----
+To check remote url 
+```
 git remote -v
----
+```
 
-To set up CI/CD pipeline in heroku we need 3 information
+To setup CI/CD pipeline in heroku we need 3 information
+1. HEROKU_EMAIL = yashdawande7@gmail.com
+2. HEROKU_API_KEY = <>
+3. HEROKU_APP_NAME = housing-lower-case
 
-1. Heroku_Email = pritamchaudhari55@gmail.com
-2. Heroku_API_KEY =<>
-3. HEROKU_APP_NAME=ml-house-app
- 
-
-
-Build docker image
----
+BUILD DOCKER IMAGE
+```
 docker build -t <image_name>:<tagname> .
----
+```
+> Note: Image name for docker must be lowercase
 
-> NOte: Image name for docker must be lowercase
 
-to list docker images
----
+To list docker image
+```
 docker images
----
+```
 
-run docker image
----
-docker run -p 5000:5000 -e PORT=5000 <image id>
----
+Run docker image
+```
+docker run -p 5000:5000 -e PORT=5000 f8c749e73678
+```
 
-To check running containers in docker
----
+To check running container in docker
+```
 docker ps
----
+```
 
-To stop docker container
----
-docker stop<container_id>
----
----
+Tos stop docker conatiner
+```
+docker stop <container_id>
+```
+
+
+
+```
 python setup.py install
----
-pip intall -e .
+```
 
-HEre folder means package while file means module
 
-install ipynbkernal
----
+Install ipykernel
+
+```
 pip install ipykernel
----
+```
+<<<<<<< HEAD
 
 
 Data Drift:
-When your dataset stats get change we call it is data drift.
+When your datset stats gets change we call it as data drift
 
-## Write a function to get training file path freom artifact dir
+
+
+## Write a function to get training file path from artifact dir
+=======
+>>>>>>> af92130f65e6f841593c5afb44c2d098b77a3e22

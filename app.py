@@ -28,8 +28,6 @@ HOUSING_DATA_KEY = "housing_data"
 MEDIAN_HOUSING_VALUE_KEY = "median_house_value"
 
 app = Flask(__name__)
-pipeline=Pipeline()
-
 
 
 @app.route('/artifact', defaults={'req_path': 'housing'})
