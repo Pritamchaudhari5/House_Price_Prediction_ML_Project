@@ -1,5 +1,6 @@
 from flask import Flask, request
 import sys
+import pip
 from housing.util.util import read_yaml_file, write_yaml_file
 from matplotlib.style import context
 from housing.logger import logging
@@ -20,6 +21,8 @@ SAVED_MODELS_DIR_NAME = "saved_models"
 LOG_DIR = os.path.join(ROOT_DIR, LOG_FOLDER_NAME)
 PIPELINE_DIR = os.path.join(ROOT_DIR, PIPELINE_FOLDER_NAME)
 MODEL_DIR = os.path.join(ROOT_DIR, SAVED_MODELS_DIR_NAME)
+
+from housing.logger import get_log_dataframe
 
 HOUSING_DATA_KEY = "housing_data"
 MEDIAN_HOUSING_VALUE_KEY = "median_house_value"
@@ -73,25 +76,26 @@ def index():
 @app.route('/view_experiment_hist', methods=['GET', 'POST'])
 def view_experiment_history():
     
-    experiment_list = pipeline.get_experiment_history()
+    experiment_df = Pipeline.get_experiments_status()
     context = {
-        "experiment_list":[experiment.to_html(classes='table table-striped') for experiment in experiment_list]
+        "experiment": experiment_df.to_html(classes='table table-striped col-12')
     }
-    return render_template('experiment_history.html',context=context)
+    return render_template('experiment_history.html', context=context)
 
 @app.route('/train', methods=['GET', 'POST'])
 def train():
     message=""
-    if not pipeline.experiment.running_status:
-        message="Training started"
+    pipeline = Pipeline(config=Configuration(current_time_stamp=get_current_time_stamp()))
+    if not Pipeline.experiment.running_status:
+        message = "Training started."
         pipeline.start()
     else:
-        message= "Training is already in progress"
+        message = "Training is already in progress."
     context = {
-        "experiment": pipeline.get_experiment_status().to_html(classes='table table-striped'),
-        "message":message
+        "experiment": pipeline.get_experiments_status().to_html(classes='table table-striped col-12'),
+        "message": message
     }
-    return render_template('train.html',context=context)
+    return render_template('train.html', context=context)
 
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -159,6 +163,23 @@ def saved_models_dir(req_path):
     }
     return render_template('saved_models_files.html', result=result)
 
+@app.route("/update_model_config", methods=['GET', 'POST'])
+def update_model_config():
+    try:
+        if request.method == 'POST':
+            model_config = request.form['new_model_config']
+            model_config = model_config.replace("'", '"')
+            print(model_config)
+            model_config = json.loads(model_config)
+
+            write_yaml_file(file_path=MODEL_CONFIG_FILE_PATH, data=model_config)
+
+        model_config = read_yaml_file(file_path=MODEL_CONFIG_FILE_PATH)
+        return render_template('update_model.html', result={"model_config": model_config})
+
+    except  Exception as e:
+        logging.exception(e)
+        return str(e)
 
 @app.route(f'/logs', defaults={'req_path': f'{LOG_FOLDER_NAME}'})
 @app.route(f'/{LOG_FOLDER_NAME}/<path:req_path>')
@@ -174,7 +195,9 @@ def render_log_dir(req_path):
 
     # Check if path is a file and serve
     if os.path.isfile(abs_path):
-        return send_file(abs_path)
+        log_df = get_log_dataframe(abs_path)
+        context = {"log": log_df.to_html(classes="table-striped", index=False)}
+        return render_template('log.html', context=context)
 
     # Show directory contents
     files = {os.path.join(abs_path, file): file for file in os.listdir(abs_path)}
