@@ -43,7 +43,7 @@ class Configuration:
                 data_ingestion_info[DATA_INGESTION_TGZ_DOWNLOAD_DIR_KEY]            
             )
             raw_data_dir = os.path.join(data_ingestion_artifact_dir,
-                                        data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
+                data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
 
 
             )
@@ -86,7 +86,7 @@ class Configuration:
 
             data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
  
-            ROOT_DIR
+
 
             schema_file_path = os.path.join(ROOT_DIR,
             data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
@@ -153,7 +153,7 @@ class Configuration:
             )
 
             logging.info(f"Data transformation config: {data_transformation_config}")
-
+            return data_transformation_config
         
         except Exception as e:
             raise HousingException(e,sys) from e
@@ -208,18 +208,15 @@ class Configuration:
 
     def get_model_pusher_config(self) ->ModelPusherConfig:
         try:
-            model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
-            artifact_dir = os.path.join(self.training_pipeline_config.artifact_dir,
-                                        MODEL_EVALUATION_ARTIFACT_DIR, )
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           time_stamp)
 
-            model_evaluation_file_path = os.path.join(artifact_dir,
-                                                    model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
-            response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
-                                            time_stamp=self.time_stamp)
+            model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
 
-
-            logging.info(f"Model Evaluation Config: {response}.")
-            return response
         except Exception as e:
             raise HousingException(e,sys) from e
 

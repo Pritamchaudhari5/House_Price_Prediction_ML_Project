@@ -7,56 +7,43 @@
 
 
 
-creating conda enviornment
+Creating conda enviornment
 ---
 open command from
 ---
-
 ---
 conda create -p <env_name>
 ---
-
 ---
 conda create -p venv python==3.7 -y
 ---
-
 ---
 conda --version
 ---
-
-
 ---
 -p create a virtual emviornment in a current project folder
 ---
-
-
 ---
 conda activate venv/
 ---
 
-
----
 OR
----
-
 ---
 conda activate venv
 ---
-
 ---
 pip install -r requirements.txt
 ---
-      
 
- to add files to git
- ---
- git add<file_name>
- ---
+to add files to git
+---
+git add<file_name>
+---
 
  OR
- ---
- git add.
- ---
+---
+git add.
+---
 
 >Note: To ignore file or folder from git we can write name of file/folder in .gitignore file
 
@@ -68,7 +55,6 @@ git log
 ---
 
 To create version/commit all changes by git
-
 ---
 git commit -m "message"
 ---
@@ -85,16 +71,16 @@ git remote -v
 
 To set up CI/CD pipeline in heroku we need 3 information
 
-1. Heroku_Email =
-2. Heroku_API_KEY =
-3. HEROKU_APP_NAME=
+1. Heroku_Email = pritamchaudhari55@gmail.com
+2. Heroku_API_KEY =<>
+3. HEROKU_APP_NAME=ml-house-app
  
 
 
- Build docker image
- ---
- docker build -t <image_name>:<tagname> .
- ---
+Build docker image
+---
+docker build -t <image_name>:<tagname> .
+---
 
 > NOte: Image name for docker must be lowercase
 
@@ -107,6 +93,7 @@ run docker image
 ---
 docker run -p 5000:5000 -e PORT=5000 <image id>
 ---
+
 To check running containers in docker
 ---
 docker ps
@@ -116,7 +103,6 @@ To stop docker container
 ---
 docker stop<container_id>
 ---
-
 ---
 python setup.py install
 ---
@@ -127,7 +113,7 @@ HEre folder means package while file means module
 install ipynbkernal
 ---
 pip install ipykernel
-...
+---
 
 
 Data Drift:
